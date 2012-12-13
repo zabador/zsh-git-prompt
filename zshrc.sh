@@ -25,10 +25,7 @@ function preexec_update_git_vars() {
 }
 
 function precmd_update_git_vars() {
-    if [ -n "$__EXECUTED_GIT_COMMAND" ] || [ -n "$ZSH_THEME_GIT_PROMPT_NOCACHE" ]; then
-        update_current_git_vars
-        unset __EXECUTED_GIT_COMMAND
-    fi
+            update_current_git_vars
 }
 
 function chpwd_update_git_vars() {
@@ -36,7 +33,7 @@ function chpwd_update_git_vars() {
 }
 
 function update_current_git_vars() {
-    unset __CURRENT_GIT_STATUS
+
 
     local gitstatus="$__GIT_PROMPT_DIR/gitstatus.py"
     _GIT_STATUS=`python ${gitstatus}`
